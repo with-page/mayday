@@ -1,14 +1,14 @@
+/* 기본 배경 및 아이폰 프레임 (기존과 동일) */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #e5e5ea; /* 화면 밖 배경색 */
+    background-color: #e5e5ea;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* 아이폰 프레임 설정 */
 .iphone-container {
     width: 375px;
     height: 812px;
@@ -21,7 +21,6 @@ body {
     overflow: hidden;
 }
 
-/* 아이폰 노치 */
 .notch {
     width: 150px;
     height: 28px;
@@ -35,7 +34,6 @@ body {
     z-index: 10;
 }
 
-/* 상단 상태바 */
 .status-bar {
     display: flex;
     justify-content: space-between;
@@ -48,7 +46,6 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* 홈 화면 및 어플리케이션 그리드 */
 .home-screen {
     padding: 60px 20px 20px 20px;
     height: 100%;
@@ -70,13 +67,13 @@ body {
 }
 
 .app:active {
-    transform: scale(0.9); /* 클릭 시 살짝 작아지는 효과 */
+    transform: scale(0.9);
 }
 
 .app img {
     width: 60px;
     height: 60px;
-    border-radius: 14px; /* 어플 아이콘 곡률 */
+    border-radius: 14px;
     object-fit: cover;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -89,7 +86,7 @@ body {
     font-weight: 500;
 }
 
-/* 어플 실행 시 화면 (모달) */
+/* 어플 실행 시 화면 */
 .app-screen {
     position: absolute;
     top: 0;
@@ -98,17 +95,16 @@ body {
     height: 100%;
     background-color: white;
     z-index: 20;
-    transform: translateY(100%); /* 기본적으로 아래에 숨김 */
+    transform: translateY(100%);
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     flex-direction: column;
 }
 
 .app-screen.open {
-    transform: translateY(0); /* 실행 시 위로 올라옴 */
+    transform: translateY(0);
 }
 
-/* 어플 내부 상단 헤더 */
 .app-header {
     padding: 50px 20px 15px;
     background-color: #f8f8f8;
@@ -117,7 +113,8 @@ body {
     align-items: center;
 }
 
-.app-header button {
+/* 닫기 버튼을 class로 변경 */
+.close-btn {
     background: none;
     border: none;
     color: #007aff;
@@ -133,15 +130,29 @@ body {
     font-size: 17px;
     flex-grow: 1;
     text-align: center;
-    padding-right: 50px; /* 중앙 정렬을 위한 여백 조정 */
+    padding-right: 50px;
 }
 
-/* 어플 내부 콘텐츠 영역 */
+/* 어플 내부 텍스트 콘텐츠 영역 (글씨 크기 유지) */
 .app-content {
     padding: 25px 20px;
     overflow-y: auto;
     flex-grow: 1;
     line-height: 1.6;
     color: #333;
-    font-size: 15px;
+    font-size: 15px; 
+}
+
+/* 🆕 사진첩 전용 그리드 레이아웃 */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    padding: 3px; /* 사진첩은 텍스트 앱과 다르게 여백을 줄임 */
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
+    object-fit: cover;
 }
