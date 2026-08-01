@@ -1,43 +1,42 @@
-// 1. 실시간 시계 업데이트
+// 1. 실시간 시계 업데이트 (기존과 동일)
 function updateClock() {
     const now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
     
-    // 한 자리 수일 경우 앞에 0을 붙여 00:00 형식 유지
     hours = hours < 10 ? '0' + hours : hours;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     
     document.getElementById('clock').textContent = `${hours}:${minutes}`;
 }
 
-setInterval(updateClock, 1000); // 1초마다 시간 갱신
-updateClock(); // 페이지 로드 시 즉시 실행
+setInterval(updateClock, 1000);
+updateClock();
 
-// 2. 어플 클릭 및 닫기 상호작용
+// 2. 어플 클릭 및 닫기 상호작용 (다중 화면 지원으로 변경)
 const apps = document.querySelectorAll('.app');
-const appModal = document.getElementById('appModal');
-const closeBtn = document.getElementById('closeBtn');
-const appTitle = document.getElementById('appTitle');
-const appContent = document.getElementById('appContent');
+const closeBtns = document.querySelectorAll('.close-btn');
 
 // 각 어플에 클릭 이벤트 부여
 apps.forEach(app => {
     app.addEventListener('click', () => {
-        // HTML의 data 속성에서 제목과 내용을 가져옴
-        const title = app.getAttribute('data-title');
-        const content = app.getAttribute('data-content');
+        // data-target 속성값을 가져옴 (예: 'app-gallery')
+        const targetId = app.getAttribute('data-target');
         
-        // 팝업 화면에 내용 삽입
-        appTitle.textContent = title;
-        appContent.innerHTML = content;
-        
-        // 화면을 위로 슬라이드
-        appModal.classList.add('open');
+        if (targetId) {
+            // 해당 ID를 가진 화면에 'open' 클래스 추가
+            document.getElementById(targetId).classList.add('open');
+        }
     });
 });
 
-// 뒤로가기 버튼 클릭 시 팝업 닫기
-closeBtn.addEventListener('click', () => {
-    appModal.classList.remove('open');
+// 모든 뒤로가기 버튼에 클릭 이벤트 부여
+closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        // 클릭된 버튼을 감싸고 있는 가장 가까운 .app-screen을 찾아서 닫음
+        const appScreen = e.target.closest('.app-screen');
+        if (appScreen) {
+            appScreen.classList.remove('open');
+        }
+    });
 });
