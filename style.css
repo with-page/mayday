@@ -1,101 +1,309 @@
-function updateClock(){
-
-
-const now = new Date();
-
-
-
-let hour = now.getHours();
-
-let minute = now.getMinutes();
-
-
-
-minute =
-minute < 10
-? "0"+minute
-: minute;
-
-
-
-let time =
-`${hour}:${minute}`;
-
-
-
-document.getElementById("time")
-.innerText=time;
-
-
-
-document.getElementById("homeTime")
-.innerText=time;
-
-
-
-
-let date =
-now.toLocaleDateString(
-"en-US",
-{
-weekday:"long",
-month:"long",
-day:"numeric"
+*{
+box-sizing:border-box;
 }
-);
 
 
+body{
 
-document.getElementById("date")
-.innerText=date;
+margin:0;
 
+height:100vh;
 
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#05060c;
+
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"SF Pro Display",
+sans-serif;
 
 }
 
 
 
-updateClock();
+.iphone{
 
-setInterval(updateClock,1000);
+width:390px;
 
+height:844px;
 
+border-radius:55px;
 
+overflow:hidden;
 
-
-function unlock(){
-
-
-const face =
-document.querySelector(".face-id");
+position:relative;
 
 
-face.innerHTML=
-`
-<div class="face-circle">
-◌
-</div>
-<span>
-Scanning Face...
-</span>
-`;
+background-image:
+
+url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e");
+
+background-size:cover;
+
+background-position:center;
 
 
+box-shadow:
+0 30px 80px rgba(0,0,0,.8);
 
-setTimeout(()=>{
-
-
-document.getElementById("lock")
-.style.display="none";
-
-
-document.getElementById("home")
-.style.display="block";
+}
 
 
 
-},1200);
+.dynamic-island{
+
+position:absolute;
+
+z-index:5;
+
+top:14px;
+
+left:50%;
+
+transform:translateX(-50%);
 
 
+width:125px;
+
+height:36px;
+
+
+background:black;
+
+border-radius:30px;
+
+}
+
+
+
+
+
+#lockScreen{
+
+height:100%;
+
+color:white;
+
+text-align:center;
+
+padding-top:120px;
+
+backdrop-filter:
+blur(2px);
+
+}
+
+
+
+
+.lock-time{
+
+font-size:82px;
+
+font-weight:600;
+
+letter-spacing:-4px;
+
+}
+
+
+
+.lock-date{
+
+font-size:18px;
+
+}
+
+
+
+
+.widget{
+
+margin:40px auto;
+
+width:120px;
+
+padding:12px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.18);
+
+backdrop-filter:
+blur(20px);
+
+}
+
+
+
+
+.owner{
+
+margin-top:130px;
+
+}
+
+
+.owner p{
+
+font-size:11px;
+
+letter-spacing:3px;
+
+}
+
+
+
+.faceID{
+
+margin-top:70px;
+
+}
+
+
+.scan{
+
+font-size:45px;
+
+}
+
+
+
+.faceID p{
+
+font-size:13px;
+
+}
+
+
+
+
+
+#homeScreen{
+
+display:none;
+
+height:100%;
+
+padding:70px 25px 25px;
+
+}
+
+
+
+.statusbar{
+
+display:flex;
+
+justify-content:space-between;
+
+color:white;
+
+font-weight:600;
+
+}
+
+
+
+
+.apps{
+
+margin-top:60px;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+}
+
+
+
+
+.app{
+
+text-align:center;
+
+color:white;
+
+font-size:13px;
+
+}
+
+
+
+.app img{
+
+width:65px;
+
+height:65px;
+
+border-radius:16px;
+
+}
+
+
+
+.app span{
+
+display:block;
+
+margin-top:6px;
+
+}
+
+
+
+.dock{
+
+position:absolute;
+
+bottom:25px;
+
+left:20px;
+
+right:20px;
+
+
+height:90px;
+
+
+border-radius:35px;
+
+
+background:
+
+rgba(255,255,255,.2);
+
+
+backdrop-filter:
+blur(30px);
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-around;
+
+}
+
+
+
+.dock img{
+
+width:55px;
+
+height:55px;
+
+border-radius:14px;
 
 }
