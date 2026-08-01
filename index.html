@@ -18,42 +18,49 @@
         <!-- 홈 화면 어플 목록 -->
         <div class="home-screen">
             <div class="app-grid">
-                <!-- App 1: 프로필 -->
-                <div class="app" data-title="프로필" data-content="이름: 000<br>나이: 00<br><br>이곳에 캐릭터의 기본 프로필과 특징을 HTML 태그와 함께 자유롭게 구성해보세요.">
-                    <img src="https://picsum.photos/seed/char1/120/120" alt="App Icon">
-                    <span>프로필</span>
+                <!-- App 1: 데이지 기록 (일반 텍스트 앱) -->
+                <div class="app" data-target="app-daisy">
+                    <img src="https://picsum.photos/seed/daisy/120/120" alt="App Icon">
+                    <span>데이지 기록</span>
                 </div>
                 
-                <!-- App 2: 에피소드 1 -->
-                <div class="app" data-title="첫 만남" data-content="어두운 골목길, 두 사람의 첫 만남에 대한 서사를 기록하는 공간입니다.<br><br>대화나 특정 사건을 적어내려가기 좋습니다.">
-                    <img src="https://picsum.photos/seed/story1/120/120" alt="App Icon">
-                    <span>에피소드 1</span>
-                </div>
-                
-                <!-- App 3: 비밀 기록 -->
-                <div class="app" data-title="비밀 기록" data-content="캐릭터의 속마음이나 타인에게는 말하지 못한 과거의 상처 등을 기록합니다.">
-                    <img src="https://picsum.photos/seed/secret/120/120" alt="App Icon">
-                    <span>비밀 기록</span>
-                </div>
-                
-                <!-- App 4: 설정 -->
-                <div class="app" data-title="세계관 설정" data-content="작품의 배경이 되는 세계관과 규칙을 설명하는 페이지입니다.">
-                    <img src="https://picsum.photos/seed/setting/120/120" alt="App Icon">
-                    <span>설정</span>
+                <!-- App 2: 사진첩 (갤러리 앱) -->
+                <div class="app" data-target="app-gallery">
+                    <img src="https://picsum.photos/seed/photo/120/120" alt="App Icon">
+                    <span>사진첩</span>
                 </div>
             </div>
         </div>
 
-        <!-- 어플 클릭 시 열리는 화면 -->
-        <div class="app-screen" id="appModal">
+        <!-- 📱 앱 화면 1: 데이지 기록 -->
+        <div class="app-screen" id="app-daisy">
             <div class="app-header">
-                <button id="closeBtn">〈 뒤로</button>
-                <h2 id="appTitle">제목</h2>
+                <button class="close-btn">〈 뒤로</button>
+                <h2>데이지 기록</h2>
             </div>
-            <div class="app-content" id="appContent">
-                내용이 여기에 표시됩니다.
+            <div class="app-content">
+                데이지에 대한 최근 관찰 기록입니다.<br><br>
+                현재까지는 일상적인 동선 외에 특별한 감정선이나 연애 기류는 발견되지 않았습니다. 추후 행적을 계속 업데이트할 예정입니다.
             </div>
         </div>
+
+        <!-- 📱 앱 화면 2: 사진첩 (갤러리 형태) -->
+        <div class="app-screen" id="app-gallery">
+            <div class="app-header">
+                <button class="close-btn">〈 뒤로</button>
+                <h2>사진첩</h2>
+            </div>
+            <!-- 사진첩 전용 클래스(gallery-grid) 추가 -->
+            <div class="app-content gallery-grid">
+                <img src="https://picsum.photos/seed/1/200/200" alt="사진1">
+                <img src="https://picsum.photos/seed/2/200/200" alt="사진2">
+                <img src="https://picsum.photos/seed/3/200/200" alt="사진3">
+                <img src="https://picsum.photos/seed/4/200/200" alt="사진4">
+                <img src="https://picsum.photos/seed/5/200/200" alt="사진5">
+                <img src="https://picsum.photos/seed/6/200/200" alt="사진6">
+            </div>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
