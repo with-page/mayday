@@ -156,3 +156,36 @@ body {
     aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
     object-fit: cover;
 }
+/* 📞 통화기록 앱 전용 스타일 */
+.call-list {
+    padding: 0;
+}
+
+.call-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e5e5ea;
+}
+
+.call-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.call-info strong {
+    font-size: 16px; /* 이름 크기 유지 */
+    margin-bottom: 4px;
+    color: #1a1a1a;
+}
+
+.call-type {
+    font-size: 13px;
+    color: #8e8e93;
+}
+
+.call-time {
+    font-size: 14px;
+    color: #8e8e93;
+}
