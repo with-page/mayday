@@ -234,28 +234,6 @@ body {
     color: #666;
 }
 
-/* 메신저 창 스타일 */
-.chat-bg { background-color: #f4f4f8; }
-
-.chat-message {
-    margin-bottom: 15px;
-    padding: 12px 16px;
-    border-radius: 18px;
-    max-width: 70%;
-}
-
-.chat-message.them {
-    background: #e9e9eb;
-    color: black;
-    margin-right: auto;
-}
-
-.chat-message.me {
-    background: #007aff;
-    color: white;
-    margin-left: auto;
-}
-
 /* 사파리 웹 브라우저 스타일 */
 .safari-bar {
     background: #f6f6f6;
