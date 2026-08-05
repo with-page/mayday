@@ -1,18 +1,15 @@
 // 1. 상단 메뉴바 시계 업데이트 (미국 AM/PM 포맷)
 function updateMacClock() {
     const now = new Date();
-    
-    // 요일 설정 (영문)
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const day = days[now.getDay()];
     
-    // 시간 및 AM/PM 설정
     let hours = now.getHours();
     let minutes = now.getMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
     
     hours = hours % 12;
-    hours = hours ? hours : 12; // 0시는 12시로 표시
+    hours = hours ? hours : 12;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     
     const timeString = `${day} ${hours}:${minutes} ${ampm}`;
@@ -38,10 +35,10 @@ const closeBtns = document.querySelectorAll('.close-btn');
 
 desktopIcons.forEach(icon => {
     icon.addEventListener('click', () => {
-        // 기존 열린 창을 닫아 깔끔하게 유지
+        // 기존 열린 창 닫기
         windows.forEach(win => win.classList.remove('open'));
         
-        // 클릭한 대상의 창 열기
+        // 클릭한 창 열기
         const targetId = icon.getAttribute('data-target');
         if (targetId) {
             document.getElementById(targetId).classList.add('open');
@@ -49,7 +46,7 @@ desktopIcons.forEach(icon => {
     });
 });
 
-// 4. 창 닫기 버튼 (빨간 신호등 버튼)
+// 4. 창 닫기 (빨간 신호등 버튼)
 closeBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const win = e.target.closest('.mac-window');
