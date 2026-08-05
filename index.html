@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 🔒 잠금 화면 (Mac 로그인) -->
+    <!-- 🔒 잠금 화면 -->
     <div id="mac-lock-screen">
         <div class="login-container">
             <img src="https://picsum.photos/seed/daisyprofile/150/150" alt="Profile" class="mac-profile">
@@ -15,14 +15,14 @@
             <div class="password-box">
                 <input type="password" value="••••••••" disabled>
                 <!-- 강제 진입 버튼 -->
-                <button id="unlock-btn">문 따고 들어가기 (Bypass)</button>
+                <button id="unlock-btn">unlock (Bypass)</button>
             </div>
         </div>
     </div>
 
     <!-- 💻 Mac 바탕화면 -->
     <div id="mac-desktop">
-        <!-- 상단 메뉴바 (미국/영문 OS 느낌) -->
+        <!-- 상단 메뉴바 -->
         <div class="mac-topbar">
             <div class="topbar-left">
                 <span class="apple-logo"></span>
@@ -39,109 +39,126 @@
             </div>
         </div>
 
-        <!-- 바탕화면 폴더들 -->
+        <!-- 바탕화면 폴더 및 아이콘 -->
         <div class="desktop-icons">
+            <div class="icon" data-target="window-profile">
+                <img src="https://picsum.photos/seed/pdf/80/80" alt="Profile">
+                <span>About_Me.pdf</span>
+            </div>
             <div class="icon" data-target="window-sheet">
                 <img src="https://picsum.photos/seed/sheeticon/80/80" alt="Sheets">
-                <span>Daisy_Observation</span>
+                <span>Winston_F24_Schedule</span>
             </div>
             <div class="icon" data-target="window-chat">
                 <img src="https://picsum.photos/seed/imessage/80/80" alt="Messages">
-                <span>Intercepted_Chat</span>
+                <span>Messages</span>
             </div>
-            <div class="icon" data-target="window-gallery">
-                <img src="https://picsum.photos/seed/macfolder/80/80" alt="Folder">
-                <span>Classified_Photos</span>
+            <div class="icon" data-target="window-web">
+                <img src="https://picsum.photos/seed/safari/80/80" alt="Safari">
+                <span>Safari</span>
             </div>
         </div>
     </div>
 
-    <!-- 🗔 창 1: 데이지 관찰 기록 (구글 스프레드시트) -->
+    <!-- 🗔 창 1: 데이지 프로필 -->
+    <div class="mac-window" id="window-profile">
+        <div class="window-header">
+            <div class="traffic-lights">
+                <div class="close-btn"></div><div class="min-btn"></div><div class="max-btn"></div>
+            </div>
+            <span class="window-title">Preview - About_Me.pdf</span>
+        </div>
+        <div class="window-content">
+            <h2 style="border-bottom: 2px solid #333; padding-bottom: 10px;">Personal Profile</h2>
+            <p><strong>Name:</strong> Daisy (데이지)</p>
+            <p><strong>Affiliation:</strong> Winston University</p>
+            <p><strong>Major:</strong> Fashion Design (패션디자인과)</p>
+            <p><strong>Year:</strong> Sophomore (2학년)</p>
+            <br>
+            <p><strong>[Memo]</strong></p>
+            <p>누구에게도 곁을 내주지 않는 성격. 타인과의 관계에 있어 철저하게 선을 그으며 비즈니스적인 태도를 유지한다. 연애나 감정적인 교류에는 전혀 관심이 없다. 오직 자신의 목표와 패션에만 몰두하고 있다.</p>
+        </div>
+    </div>
+
+    <!-- 🗔 창 2: 시간표 및 과제 (구글 스프레드시트) -->
     <div class="mac-window" id="window-sheet">
         <div class="window-header">
             <div class="traffic-lights">
                 <div class="close-btn"></div><div class="min-btn"></div><div class="max-btn"></div>
             </div>
-            <span class="window-title">Google Sheets - Daisy_Observation</span>
+            <span class="window-title">Google Sheets - Winston_F24_Schedule</span>
         </div>
         <div class="window-content no-padding">
-            <!-- 스프레드시트 레이아웃 -->
             <table class="google-sheet">
                 <thead>
                     <tr>
                         <th class="row-num"></th>
-                        <th>A (Date)</th>
-                        <th>B (Target)</th>
-                        <th>C (Status / Notes)</th>
+                        <th>Time</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="row-num">1</td>
-                        <td>08/01</td>
-                        <td>데이지</td>
-                        <td>연애 기류 전혀 없음. 적어도 데이지한테는.</td>
-                    </tr>
-                    <tr>
-                        <td class="row-num">2</td>
-                        <td>08/02</td>
-                        <td>데이지</td>
-                        <td>철저히 비즈니스적인 태도 유지 중.</td>
-                    </tr>
-                    <tr>
-                        <td class="row-num">3</td>
-                        <td>08/04</td>
-                        <td>데이지</td>
-                        <td>일상적인 동선 외 특이사항 미발견.</td>
-                    </tr>
-                    <tr>
-                        <td class="row-num">4</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <tr><td class="row-num">1</td><td>09:00 AM</td><td>Textile Science</td><td></td><td>Textile Science</td><td></td><td></td></tr>
+                    <tr><td class="row-num">2</td><td>11:00 AM</td><td></td><td>Fashion Illustration</td><td></td><td>Fashion Illustration</td><td></td></tr>
+                    <tr><td class="row-num">3</td><td>02:00 PM</td><td>Pattern Making</td><td></td><td>Pattern Making</td><td></td><td>Studio Work</td></tr>
+                    <tr><td class="row-num">4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td class="row-num">5</td><td colspan="6" style="background-color:#e8f0fe; font-weight:bold;">📋 To-Do List (Assignments)</td></tr>
+                    <tr><td class="row-num">6</td><td colspan="6">☑️ 패턴 메이킹 중간 과제 가봉 완료하기 (Due: 10/12)</td></tr>
+                    <tr><td class="row-num">7</td><td colspan="6">☑️ 텍스타일 과학 에세이 초안 작성</td></tr>
+                    <tr><td class="row-num">8</td><td colspan="6">☐ 패션 일러스트레이션 포트폴리오 스케치 3장 추가</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- 🗔 창 2: 메신저 (연인) -->
+    <!-- 🗔 창 3: 메신저 (아버지와의 대화) -->
     <div class="mac-window" id="window-chat">
         <div class="window-header">
             <div class="traffic-lights">
                 <div class="close-btn"></div><div class="min-btn"></div><div class="max-btn"></div>
             </div>
-            <span class="window-title">Messages - ❤️</span>
+            <span class="window-title">Messages - Father</span>
         </div>
         <div class="window-content chat-bg">
-            <div class="chat-message lover">
-                <strong>❤️</strong><br>
-                어제 무사히 들어갔어? 피곤하진 않고?
+            <div class="chat-message them">
+                <strong>Father</strong><br>
+                학비 지원은 이번 학기가 마지막이다. 쓸데없는 옷이나 만들 시간에 정신 차리고 집으로 들어와.
             </div>
             <div class="chat-message me">
-                <strong>나</strong><br>
-                응, 방금 데이지 노트북 몰래 확인하는 중이야.
+                <strong>Daisy</strong><br>
+                애초에 기대도 안 했습니다. 제 일은 제가 알아서 하니까 다신 연락하지 마세요.
             </div>
-            <div class="chat-message lover">
-                <strong>❤️</strong><br>
-                조심해. 끝나면 바로 연락하고!
+            <div class="chat-message them">
+                <strong>Father</strong><br>
+                네가 언제까지 버티나 보자.
             </div>
         </div>
     </div>
 
-    <!-- 🗔 창 3: 사진첩 -->
-    <div class="mac-window" id="window-gallery">
+    <!-- 🗔 창 4: 사파리 웹 브라우저 (아버지 정보 검색) -->
+    <div class="mac-window" id="window-web">
         <div class="window-header">
             <div class="traffic-lights">
                 <div class="close-btn"></div><div class="min-btn"></div><div class="max-btn"></div>
             </div>
-            <span class="window-title">Preview - Classified_Photos</span>
+            <span class="window-title">Safari</span>
         </div>
-        <div class="window-content gallery-grid">
-            <img src="https://picsum.photos/seed/us1/400/300" alt="사진1">
-            <img src="https://picsum.photos/seed/us2/400/300" alt="사진2">
-            <img src="https://picsum.photos/seed/us3/400/300" alt="사진3">
-            <img src="https://picsum.photos/seed/us4/400/300" alt="사진4">
+        <!-- 사파리 전용 주소창 -->
+        <div class="safari-bar">
+            <div class="nav-buttons">⟨ ⟩ ↻</div>
+            <div class="url-input">en.wikipedia.org/wiki/Richard_CEO</div>
+        </div>
+        <div class="window-content web-content">
+            <h1 style="border-bottom: 1px solid #ccc; padding-bottom: 10px; font-family: serif;">Richard [Last Name]</h1>
+            <p><strong>Richard</strong> is a prominent American business executive and the current CEO of a major multinational conglomerate.</p>
+            <p><strong>Personal Life:</strong><br>
+            Known for his ruthless business tactics, Richard is equally strict in his personal life. He is estranged from his youngest daughter, Daisy, who abruptly cut ties with the family to pursue a degree in Fashion Design at Winston University against his wishes.</p>
+            <p><strong>Controversies:</strong><br>
+            최근 기업 내부의 강압적인 경영 방식과 후계 구도를 둘러싼 가족 간의 불화가 언론을 통해 수차례 보도된 바 있다...</p>
         </div>
     </div>
 
