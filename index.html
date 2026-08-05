@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <!-- 바탕화면 폴더 및 아이콘 (채팅앱 제거됨) -->
+        <!-- 바탕화면 폴더 및 아이콘 -->
         <div class="desktop-icons">
             <div class="icon" data-target="window-profile">
                 <img src="https://picsum.photos/seed/pdf/80/80" alt="Profile">
@@ -53,6 +53,10 @@
                 <img src="https://picsum.photos/seed/safari/80/80" alt="Safari">
                 <span>Safari</span>
             </div>
+            <div class="icon" data-target="window-diary">
+                <img src="https://picsum.photos/seed/textedit/80/80" alt="TextEdit">
+                <span>untitled.txt</span>
+            </div>
         </div>
     </div>
 
@@ -64,15 +68,34 @@
             </div>
             <span class="window-title">Preview - About_Me.pdf</span>
         </div>
-        <div class="window-content">
-            <h2 style="border-bottom: 2px solid #333; padding-bottom: 10px;">Personal Profile</h2>
-            <p><strong>이름:</strong> Daisy Frost (데이지 프로스트)</p>
-            <p><strong>국적:</strong> 미국</p>
-            <p><strong>생일:</strong> 5월 5일</p>
-            <p><strong>혈액형:</strong> B-</p>
-            <p><strong>MBTI:</strong> ENFP</p>
-            <p><strong>좋아하는 것:</strong> 체리, 치킨파히타, 달달한 디저트</p>
-            <p><strong>싫어하는 것:</strong> 가족.</p>
+        <div class="window-content profile-layout">
+            <!-- 프로필 상단 배너 및 사진 -->
+            <div class="profile-header-banner">
+                <img src="https://picsum.photos/seed/daisyphoto/120/120" alt="Daisy Frost" class="profile-avatar">
+                <div class="profile-title-info">
+                    <h2>Daisy Frost</h2>
+                    <span>Sophomore, Fashion Design (Winston Univ.)</span>
+                </div>
+            </div>
+            
+            <!-- 프로필 상세 정보 -->
+            <div class="profile-details-grid">
+                <div class="detail-box"><strong>국적</strong><br>미국</div>
+                <div class="detail-box"><strong>생일</strong><br>5월 5일</div>
+                <div class="detail-box"><strong>혈액형</strong><br>B-</div>
+                <div class="detail-box"><strong>MBTI</strong><br>ENFP</div>
+            </div>
+
+            <div class="profile-likes">
+                <p><strong>🤍 좋아하는 것:</strong> 체리, 치킨파히타, 달달한 디저트</p>
+                <p><strong>🖤 싫어하는 것:</strong> 가족.</p>
+            </div>
+            
+            <!-- 비밀 메모 섹션 -->
+            <div class="profile-memo">
+                <h3>[Memo]</h3>
+                <p>누구에게도 곁을 내주지 않는 성격. 타인과의 관계에 있어 철저하게 선을 그으며 비즈니스적인 태도를 유지한다. 연애나 감정적인 교류에는 전혀 관심이 없다. 오직 자신의 목표와 패션에만 몰두하고 있다.</p>
+            </div>
         </div>
     </div>
 
@@ -111,7 +134,7 @@
         </div>
     </div>
 
-    <!-- 🗔 창 3: 사파리 웹 브라우저 (에드워드 프로스트 정보 검색) -->
+    <!-- 🗔 창 3: 사파리 웹 브라우저 (위키백과) -->
     <div class="mac-window" id="window-web">
         <div class="window-header">
             <div class="traffic-lights">
@@ -124,15 +147,91 @@
             <div class="nav-buttons">⟨ ⟩ ↻</div>
             <div class="url-input">en.wikipedia.org/wiki/Edward_Frost</div>
         </div>
-        <div class="window-content web-content">
-            <h1 style="border-bottom: 1px solid #ccc; padding-bottom: 10px; font-family: serif;">Edward Frost</h1>
-            <p><strong>Edward Frost (에드워드 프로스트)</strong>는 미국 동부의 명문가인 프로스트 가문의 수장이자 금융계에서 크게 성공한 기업인이다.</p>
-            <br>
-            <p><strong>Career:</strong><br>
-            투자, 자산운용, 사모펀드 등을 다루는 대형 금융 기업인 <strong>Frost Capital Group (FCG)</strong>을 설립하였으며, 현재 CEO로 재직 중이다. 그의 지휘 아래 FCG는 막대한 부를 축적하며 금융계에서 막강한 영향력을 행사하고 있다.</p>
-            <br>
-            <p><strong>Personal Life:</strong><br>
-            에드워드에게는 유일한 혈육이자 외동딸인 <strong>데이지 프로스트(Daisy Frost)</strong>가 있다. 프로스트 가문은 미국 동부에서도 손꼽히는 부유한 명문가이나, 부녀의 관계는 원만하지 않은 것으로 알려져 있다. 딸 데이지는 가문의 후광을 거부한 채 집안과 거리를 두고 윈스턴 대학교(Winston University) 패션디자인과에 재학 중이다.</p>
+        <div class="window-content web-content wiki-layout">
+            <!-- 위키백과 좌측 메뉴 가짜 UI -->
+            <div class="wiki-sidebar">
+                <div class="wiki-logo">
+                    <strong>WIKIPEDIA</strong><br>
+                    <span>The Free Encyclopedia</span>
+                </div>
+                <ul class="wiki-menu">
+                    <li>Main page</li>
+                    <li>Contents</li>
+                    <li>Current events</li>
+                    <li>Random article</li>
+                </ul>
+            </div>
+            
+            <!-- 위키백과 본문 -->
+            <div class="wiki-main">
+                <h1 class="wiki-title">Edward Frost</h1>
+                
+                <!-- 우측 정보 상자 (Infobox) -->
+                <table class="wiki-infobox">
+                    <tr><th colspan="2" class="infobox-header">Edward Frost</th></tr>
+                    <tr>
+                        <td colspan="2" class="infobox-image">
+                            <img src="https://picsum.photos/seed/edwardceo/200/250" alt="Edward Frost">
+                        </td>
+                    </tr>
+                    <tr><th>Born</th><td>United States</td></tr>
+                    <tr><th>Occupation</th><td>CEO, Frost Capital Group</td></tr>
+                    <tr><th>Children</th><td>Daisy Frost</td></tr>
+                </table>
+
+                <p><strong>Edward Frost (에드워드 프로스트)</strong>는 미국 동부의 명문가인 프로스트 가문의 수장이자 금융계에서 크게 성공한 기업인이다.</p>
+                <br>
+                <h3 class="wiki-subtitle">Career</h3>
+                <p>투자, 자산운용, 사모펀드 등을 다루는 대형 금융 기업인 <strong>Frost Capital Group (FCG)</strong>을 설립하였으며, 현재 CEO로 재직 중이다. 그의 지휘 아래 FCG는 막대한 부를 축적하며 금융계에서 막강한 영향력을 행사하고 있다.</p>
+                <br>
+                <h3 class="wiki-subtitle">Personal Life</h3>
+                <p>에드워드에게는 유일한 혈육이자 외동딸인 <strong>데이지 프로스트(Daisy Frost)</strong>가 있다. 프로스트 가문은 미국 동부에서도 손꼽히는 부유한 명문가이나, 부녀의 관계는 원만하지 않은 것으로 알려져 있다. 딸 데이지는 가문의 후광을 거부한 채 집안과 거리를 두고 윈스턴 대학교(Winston University) 패션디자인과에 재학 중이다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🗔 창 4: 비밀 메모 (제목 없음.txt) -->
+    <div class="mac-window" id="window-diary">
+        <div class="window-header">
+            <div class="traffic-lights">
+                <div class="close-btn"></div><div class="min-btn"></div><div class="max-btn"></div>
+            </div>
+            <span class="window-title">TextEdit - untitled.txt</span>
+        </div>
+        <div class="window-content diary-content">
+            <p>가끔은 하늘에서 추락하는 상상을 하곤 했다. 그게 옥상이 되었든, 세 칸 뿐인 계단 위가 되었든.<br>
+            늘 똑같은 굴레에서 맑은 하늘을 바라보며 이 세상에서 내가 태어난 이유를, 구름 속에서 찾아보기도 했다.</p>
+            
+            <p class="separator"> / </p>
+            
+            <p>아홉살의 나는, 세상의 반 쪽을 잃어버렸다. 순수한 사랑이라는 의미가 담긴 이름을 지어주며, 내 작은 몸을 소중하게 감싸주던 온기는 더 이상 내게 존재하지 않았다. 따뜻했던 햇살 대신에 아버지라는 거대한 그늘은 나를 갉아먹는 독과 같았다.<br>
+            엄마가 떠난 빈자리는 금세 낯선 여자들의 향수로 채워졌다. 아버지는 내게 슬퍼할 시간조차 허락하지 않았다. 그 개같은 프로스트라는 이름에 어울리는 완벽한 인형이 될 것을 강요했고, 조금이라도 그 틀에서 벗어나면 차가운 눈빛과 함께 무자비한 폭력이 돌아왔다.</p>
+            
+            <p>"You're too rough around the edges, Daisy. Make yourself useful."</p>
+            
+            <p>손바닥이 뺨을 후려치는 소리, 억지로 참아내다 터져 나온 신음, 그리고 붉게 부어오른 피부 위로 느껴지던 오한. 아버지가 원한 건 딸이 아니라 자신의 통제 아래 완벽하게 움직이는 부속품일 뿐이었다.<br>
+            기대에 미치지 못할 때마다 자리잡은 자국들이, 나라는 존재가 이 집안에서 얼마나 무력하고 불완전한지를 매일같이 각인시켰고,<br>
+            그 지독한 것은 내 몸뿐만 아니라, 누군가를 믿고 기대할 수 있는 마음의 뿌리까지 깨끗하게 부숴버렸다.</p>
+            
+            <p class="separator"> / </p>
+            
+            <p>영원할 것 같던 억압의 시간 속에서, 구원 대신 내게 찾아온 것은 길고 아늑한 밤이 아닌 지독한 불면이었다.<br>
+            눈을 감으면 고함 소리가 환각처럼 귓가를 맴돌았고, 두려움에 온 몸이 떨려왔다.</p>
+            
+            <p>혼자 남겨진 침대 위는 마치 바닥이 없는 낭떠러지 같아서, 금방이라도 추락할 것 같은 공포에 밤새 숨을 죽여야 했다.</p>
+            
+            <p class="separator"> / </p>
+            
+            <p>언제부터였을까. 스스로 잠에 들기를 포기하고 누군가의 체온에 억지로 몸을 들이밀기 시작한 것은,</p>
+            
+            <p>쿵쿵거리는 베이스 소리와 땀 냄새가 섞인 어두컴컴한 클럽 조명 아래서, 이름도 모르는 남자의 품에 안겼을 때 처음 알았다.<br>
+            그가 나를 사랑해서도, 내가 그를 원해서도 아니었다. 그저 피부를 타고 전해지는 낯선 사람의 미지근한 온기만이<br>
+            내가 지금 추락하지 않고 살아있음을 증명해 주었을 뿐이었다. 그 온기가 없었다면 나는 금방이라도 숨이 막혀 죽을 것 같았으니까.</p>
+            
+            <p>어차피 아침이 오면 이 온기들도 환상처럼 사라질 것이다. 나를 거쳐 간 수많은 시간이 그랬듯, 내 곁에 머무는 모든 것들은 결국 나를 버리고 떠날테니까.<br>
+            하룻밤의 신기루처럼, 늘 잠에 들기 전에 달에게 비는 주문처럼.</p>
+            
+            <p>그렇게 가벼이.</p>
         </div>
     </div>
 
