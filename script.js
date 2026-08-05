@@ -1,5 +1,5 @@
-// 1. 실시간 시계 업데이트 (기존과 동일)
-function updateClock() {
+// 1. 작업표시줄 시계 업데이트
+function updateDesktopClock() {
     const now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
@@ -7,36 +7,44 @@ function updateClock() {
     hours = hours < 10 ? '0' + hours : hours;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     
-    document.getElementById('clock').textContent = `${hours}:${minutes}`;
+    document.getElementById('desktopClock').textContent = `${hours}:${minutes}`;
 }
 
-setInterval(updateClock, 1000);
-updateClock();
+setInterval(updateDesktopClock, 1000);
+updateDesktopClock();
 
-// 2. 어플 클릭 및 닫기 상호작용 (다중 화면 지원으로 변경)
-const apps = document.querySelectorAll('.app');
-const closeBtns = document.querySelectorAll('.close-btn');
+// 2. 컴퓨터 잠금 해제 (문 따고 들어가기)
+const loginScreen = document.getElementById('loginScreen');
+const unlockBtn = document.getElementById('unlockBtn');
 
-// 각 어플에 클릭 이벤트 부여
-apps.forEach(app => {
-    app.addEventListener('click', () => {
-        // data-target 속성값을 가져옴 (예: 'app-gallery')
-        const targetId = app.getAttribute('data-target');
+unlockBtn.addEventListener('click', () => {
+    loginScreen.classList.add('unlocked');
+});
+
+// 3. 바탕화면 아이콘 클릭 시 창 열기
+const desktopIcons = document.querySelectorAll('.desktop-icon');
+const windows = document.querySelectorAll('.window');
+const closeBtns = document.querySelectorAll('.window-close');
+
+desktopIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+        // 열려있는 다른 창들을 모두 먼저 닫기 (깔끔한 화면 유지를 위해)
+        windows.forEach(win => win.classList.remove('open'));
         
+        // 클릭한 아이콘의 창 열기
+        const targetId = icon.getAttribute('data-target');
         if (targetId) {
-            // 해당 ID를 가진 화면에 'open' 클래스 추가
             document.getElementById(targetId).classList.add('open');
         }
     });
 });
 
-// 모든 뒤로가기 버튼에 클릭 이벤트 부여
+// 4. 창 닫기 버튼
 closeBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        // 클릭된 버튼을 감싸고 있는 가장 가까운 .app-screen을 찾아서 닫음
-        const appScreen = e.target.closest('.app-screen');
-        if (appScreen) {
-            appScreen.classList.remove('open');
+        const win = e.target.closest('.window');
+        if (win) {
+            win.classList.remove('open');
         }
     });
 });
