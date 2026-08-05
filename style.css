@@ -206,7 +206,7 @@ body {
 
 .no-padding { padding: 0; }
 
-/* 구글 스프레드시트 스타일 */
+/* 📊 구글 스프레드시트 스타일 */
 .google-sheet {
     width: 100%;
     border-collapse: collapse;
@@ -234,7 +234,7 @@ body {
     color: #666;
 }
 
-/* 사파리 웹 브라우저 스타일 */
+/* 🌐 사파리 웹 브라우저 스타일 */
 .safari-bar {
     background: #f6f6f6;
     border-bottom: 1px solid #ccc;
@@ -262,6 +262,217 @@ body {
     text-align: center;
 }
 
-.web-content {
+/* 📝 텍스트 에디터(비밀 메모) 전용 스타일 */
+.diary-content {
+    background-color: #fafafa;
+    color: #222;
+    padding: 30px 40px;
+}
+
+.diary-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+}
+
+.diary-content .separator {
+    text-align: center;
+    color: #999;
+    letter-spacing: 5px;
+    margin: 30px 0;
+}
+
+/* 🎨 데이지 프로필 레이아웃 업그레이드 */
+.profile-layout {
+    background-color: #fcfcfc;
+    padding: 30px;
+}
+
+.profile-header-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.profile-title-info h2 {
+    margin: 0 0 5px 0;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.profile-title-info span {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.detail-box {
     background: white;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    font-size: 15px;
+}
+
+.detail-box strong {
+    color: #666;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.profile-likes {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4ca1af;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.profile-likes p { margin: 5px 0; font-size: 16px; }
+
+.profile-memo {
+    background-color: #fff9e6;
+    border: 1px solid #ffeeba;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.profile-memo h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #856404;
+}
+
+/* 🌐 위키백과(Safari) 레이아웃 업그레이드 */
+.wiki-layout {
+    display: flex;
+    background-color: white;
+    padding: 0 !important;
+}
+
+.wiki-sidebar {
+    width: 160px;
+    background-color: #f6f6f6;
+    border-right: 1px solid #a7d7f9;
+    padding: 20px 15px;
+    flex-shrink: 0;
+}
+
+.wiki-logo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: serif;
+    color: #333;
+}
+
+.wiki-logo strong { font-size: 18px; }
+.wiki-logo span { font-size: 11px; color: #555; }
+
+.wiki-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.wiki-menu li {
+    margin-bottom: 10px;
+    color: #0645ad;
+    cursor: pointer;
+}
+
+.wiki-menu li:hover { text-decoration: underline; }
+
+.wiki-main {
+    flex-grow: 1;
+    padding: 25px 35px;
+    overflow-y: auto;
+}
+
+.wiki-title {
+    font-family: "Linux Libertine", Georgia, Times, serif;
+    font-size: 32px;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.wiki-subtitle {
+    font-family: "Linux Libertine", Georgia, Times, serif;
+    font-size: 22px;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+/* 우측 정보 상자 (Infobox) */
+.wiki-infobox {
+    float: right;
+    width: 280px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.infobox-header {
+    background-color: #b0c4de;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.infobox-image {
+    text-align: center;
+    padding: 10px;
+}
+
+.infobox-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.wiki-infobox th {
+    text-align: left;
+    padding: 8px;
+    border-top: 1px solid #a2a9b1;
+    background-color: #eaecf0;
+    width: 35%;
+}
+
+.wiki-infobox td {
+    padding: 8px;
+    border-top: 1px solid #a2a9b1;
 }
