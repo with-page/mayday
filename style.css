@@ -1,192 +1,254 @@
-/* 전체 화면 설정 및 글씨 크기 유지 */
+/* 전체 폰트 및 배경 설정 */
 body {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    font-family: 'Malgun Gothic', "Segoe UI", Roboto, sans-serif;
-    overflow: hidden; /* 스크롤 방지 */
-    background: url('https://picsum.photos/seed/pcbg/1920/1080') no-repeat center center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px; /* 넉넉한 글씨 크기 유지 */
+    overflow: hidden;
+    background: url('https://picsum.photos/seed/macbg/1920/1080?blur=2') no-repeat center center;
     background-size: cover;
-    font-size: 16px;
     color: #333;
 }
 
-/* 🔒 컴퓨터 로그인 화면 */
-.login-screen {
+/* 🔒 Mac 로그인 화면 */
+#mac-lock-screen {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    z-index: 50;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    color: white;
-    transition: opacity 0.6s, visibility 0.6s;
+    align-items: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-.login-screen.unlocked {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.login-profile {
+.login-container {
     text-align: center;
-    margin-bottom: 50px;
+    color: white;
 }
 
-.login-profile img {
+.mac-profile {
     border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
 }
 
-.unlock-area {
-    padding: 15px 40px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background 0.3s;
+.login-container h2 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    font-weight: 500;
 }
 
-.unlock-area:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* 💻 바탕화면 아이콘 */
-.desktop-environment {
-    width: 100%;
-    height: calc(100% - 50px); /* 작업표시줄 공간 제외 */
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 20px;
-}
-
-.desktop-icon {
+.password-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
+    gap: 15px;
 }
 
-.desktop-icon:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.desktop-icon img {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-
-.desktop-icon span {
+.password-box input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.2);
     color: white;
-    text-shadow: 1px 1px 3px black;
-    font-size: 15px;
-    word-break: keep-all;
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    outline: none;
 }
 
-/* 🖥️ 하단 작업표시줄 */
-.taskbar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: rgba(30, 30, 30, 0.9);
+#unlock-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #007aff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.2s;
+}
+
+#unlock-btn:hover {
+    background-color: #005bb5;
+}
+
+/* 💻 상단 메뉴바 */
+.mac-topbar {
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    box-sizing: border-box;
-    color: white;
-    z-index: 10;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
 }
 
-.start-btn {
-    font-size: 18px;
-    font-weight: bold;
+.topbar-left span { margin-right: 20px; cursor: default; }
+.topbar-left .bold { font-weight: bold; }
+.apple-logo { font-size: 18px; }
+
+/* 바탕화면 아이콘 */
+.desktop-icons {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-end; /* 아이콘을 우측에 배치 (Mac 기본) */
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 110px;
     cursor: pointer;
+    text-align: center;
 }
 
-.taskbar-time {
-    font-size: 16px;
+.icon img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* 🗔 윈도우 창 공통 스타일 */
-.window {
+.icon span {
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* 🗔 Mac 스타일 윈도우 창 */
+.mac-window {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
+    width: 700px;
     max-width: 90%;
-    height: 450px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    display: none; /* 기본적으로 숨김 */
+    height: 500px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: none; /* 기본 숨김 */
     flex-direction: column;
-    z-index: 20;
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.2);
 }
 
-.window.open {
+.mac-window.open {
     display: flex;
 }
 
 .window-header {
-    background: #f0f0f0;
-    padding: 10px 15px;
+    background: #e5e5e5;
+    height: 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-    user-select: none;
+    padding: 0 15px;
+    position: relative;
+    border-bottom: 1px solid #d1d1d1;
 }
+
+/* 신호등 버튼 */
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-lights div {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close-btn { background-color: #ff5f56; }
+.close-btn:hover { background-color: #e0443c; }
+.min-btn { background-color: #ffbd2e; }
+.max-btn { background-color: #27c93f; }
 
 .window-title {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.window-close {
-    background: #ff5f56;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 12px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.window-close:hover {
-    background: #e0443c;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
 }
 
 .window-content {
+    flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
-    flex-grow: 1;
+    font-size: 16px;
     line-height: 1.6;
+}
+
+.no-padding { padding: 0; }
+
+/* 구글 스프레드시트 스타일 */
+.google-sheet {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.google-sheet th, .google-sheet td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+}
+
+.google-sheet th {
+    background-color: #f3f3f3;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+.google-sheet .row-num {
+    background-color: #f3f3f3;
+    text-align: center;
+    width: 40px;
+    color: #666;
+}
+
+/* 메신저 창 스타일 */
+.chat-bg { background-color: #f4f4f8; }
+
+.chat-message {
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    max-width: 70%;
+    background: #e9e9eb;
+    color: black;
+}
+
+.chat-message.me {
+    background: #007aff;
+    color: white;
+    margin-left: auto;
 }
 
 /* 사진첩 그리드 */
@@ -194,31 +256,11 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    padding: 15px;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-/* 메신저 레이아웃 */
-.chat-content {
-    background: #b2c7d9; /* 메신저 기본 배경색 */
-}
-
-.chat-message {
-    margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 8px;
-    max-width: 70%;
-    background: white;
-}
-
-.chat-message.me {
-    background: #ffeb33; /* 노란색 내 말풍선 */
-    margin-left: auto;
+    border-radius: 6px;
 }
